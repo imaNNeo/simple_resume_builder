@@ -1,0 +1,137 @@
+{
+  "fullName": "Iman Khoshabi",
+  "location": "Amsterdam, Netherlands",
+  "email": "iman.neofight@gmail.com",
+  "linkedIn": "linkedin.com/in/iman-khoshabi-7782a9114",
+  "github": "github.com/imaNNeo",
+  "summary": "I have been working as a Software Engineer for 10 years, focusing mainly on Mobile Application Development for the last 9 years. My experience with Flutter development started 5 years ago, and since then, I have been actively contributing to the Flutter community. One of my significant contributions is the creation of the 'fl_chart' package, which has gained more than 6k stars on GitHub. I also run flutter4fun.com, a blog where I post solutions and tutorials for UI/UX challenges in Flutter.\nIn addition to these, I have been involved in various side projects using Flutter for the past 4 years. These projects range from game development to security topics like End-to-End Encryption (E2EE). My background in Android Development includes using Kotlin and Java for projects in sectors such as Maps and Navigation, Social Media, Shopping, Fin-Tech, and E-commerce.",
+  "experience": [
+    {
+      "company": "App Logik GmbH",
+      "companyLogo": "https://media.licdn.com/dms/image/C4E0BAQGyQ0duqHnUIw/company-logo_200_200/0/1630576419249?e=1709769600&v=beta&t=S7Geop8Fw4u05O7FiFlq9jOaPnympCDBrH5yCK41Q2U",
+      "position": "Senior Flutter Developer",
+      "startDate": "Mar 2023",
+      "endDate": "Present",
+      "summary": [
+        "App Logik GmbH is a software agency company that develops and maintains different kinds of projects for different products.",
+        "As a Senior Flutter Developer, I could help the team use the clean architecture and bloc pattern (as a state management solution) in the company."
+      ]
+    },
+    {
+      "company": "Changefly",
+      "companyLogo": "https://github.com/imaNNeo/imanneo.dev/blob/main/static/companies/changefly.jpg?raw=true",
+      "position": "Flutter Developer (side-project)",
+      "startDate": "Nov 2019",
+      "endDate": "Apr 2023",
+      "summary": [
+        "Developed Changefly.org, a Silicon Valley initiative for privacy protection, during free weekends.",
+        "Interned in E2EE logic and Flutter state management, later continuing as a developer.",
+        "Enhanced expertise in Bloc/Clean Architecture, E2EE (sodium_libs), Unit Testing, and Flutter Isolates."
+      ]
+    },
+    {
+      "company": "Balad Maps and Navigation",
+      "companyLogo": "https://media.licdn.com/dms/image/C560BAQFJE612RujE_Q/company-logo_200_200/0/1630623279149/baladmaps_logo?e=1709769600&v=beta&t=ko4GY8DlgCkzKYMb0qiP5o04Ofw0ydAqQZVPmz8zJA8",
+      "position": "Senior Android Developer",
+      "startDate": "May 2018",
+      "endDate": "Nov 2022",
+      "summary": [
+        "Experienced in Flux, MVVM, and Clean Architecture",
+        "Implemented several key features of the application using Kotlin, Java, JetPack, RxJava, Dagger, Mapbox and Retrofit",
+        "Designed a scalable real-time chat system using gRPC",
+        "Enhanced app stability, achieving 99.7% crash-free sessions and reducing slow renderings by 70%",
+        "Mentored new team members in developing complex features within an agile/scrum framework",
+        "Created a Flutter-based desktop debugger app for Flux actions and change logs, and developed the flutter_poolakey package for in-app purchases in Cafebazaar's Flutter apps"
+      ]
+    },
+    {
+      "company": "Noxel Group",
+      "companyLogo": "https://github.com/imaNNeo/imanneo.dev/blob/main/static/companies/noxel_group.jpeg?raw=true",
+      "position": "Android Developer",
+      "startDate": "Jun 2017",
+      "endDate": "May 2018",
+      "summary": [
+        "Developed an app to let users choose their customized burger to order",
+        "Solved some complex UI Challenges, for example implementing expandable pages embedded in a List"
+      ]
+    },
+    {
+      "company": "AppWizard",
+      "companyLogo": "https://github.com/imaNNeo/imanneo.dev/blob/main/static/companies/appwizard.jpeg?raw=true",
+      "position": "Android Developer",
+      "startDate": "Oct 2015",
+      "endDate": "Jun 2017",
+      "summary": [
+        "Developed several Android apps on different topics such as e-commerce and Advertisement",
+        "Made a base app and integrated it with a panel written in PHP to build an app with different configs automatically for different customer needs",
+        "Experienced in the MVP architecture pattern"
+      ]
+    },
+    {
+      "company": "Rasen",
+      "position": "Intern Android Developer",
+      "startDate": "Jun 2015",
+      "endDate": "Oct 2015",
+      "summary": [
+        "Wrote manual test cases for the company's critical scenarios",
+        "Learned about the Git"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "schoolName": "Azad University of Pardis/Tehran",
+      "schoolLogo": "https://media.licdn.com/dms/image/C560BAQHt27EigHC96Q/company-logo_200_200/0/1631361564145?e=1709769600&v=beta&t=ObleANXSpYaycA8G5iFa3aG4DneLFfWlkjhOOuJhP0Y",
+      "degree": "Bachelor's degree",
+      "field": "Computer Software Engineering",
+      "startDate": "2015",
+      "endDate": "2020"
+    }
+  ],
+  "communityAndOpenSource": [
+    {
+      "title": "FL Chart Library",
+      "link": "github.com/imaNNeo/fl_chart",
+      "since": "May 2019",
+      "summary": "FL Chart is a package I created for Flutter, popular with more than 6k stars on GitHub and about 5k likes on pub.dev. It provides easy-to-use, animated charts, making it well-liked in the Flutter community for its straightforward data display",
+      "logo": "https://raw.githubusercontent.com/imaNNeo/imanneo.dev/main/static/companies/fl_chart.png"
+    },
+    {
+      "title": "Flutter4fun.com Blog",
+      "since": "Aug 2020",
+      "summary": "Flutter4Fun is a blog I started, fueled by my addiction to solving complex UI/UX challenges",
+      "logo": "https://raw.githubusercontent.com/imaNNeo/imanneo.dev/main/static/companies/flutter4fun.png"
+    }
+  ],
+  "skills": [
+    "Flutter",
+    "Dart",
+    "Git",
+    "SQLite",
+    "Bash",
+    "gRPC",
+    "Reactive Programming",
+    "Flux/Redux",
+    "Android Native",
+    "Java/Kotlin",
+    "UI/UX design",
+    "Scrum/Agile"
+  ],
+  "honorsAndAwards": [
+    {
+      "title": "First Place in the Hackahealth",
+      "date": "Apr 2019",
+      "info": "hackahealth.org"
+    },
+    {
+      "title": "First Place in the Fanavard Contest",
+      "date": "Dec 2016",
+      "info": ""
+    },
+    {
+      "title": "Fifth Place in the Sharif Mobile App Marathon",
+      "date": "Sep 2014",
+      "info": ""
+    }
+  ]
+}
