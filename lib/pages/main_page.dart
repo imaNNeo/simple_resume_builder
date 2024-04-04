@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:json_text_field/json_text_field.dart';
 import 'package:simple_resume_builder/cubit/app_cubit.dart';
 import 'package:simple_resume_builder/extensions/string_extensions.dart';
 import 'package:simple_resume_builder/widgets/loading_overlay.dart';
 import 'package:toastification/toastification.dart';
-import 'package:pdfx/pdfx.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -14,10 +14,12 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  PdfControllerPinch? _controller;
+
+  late JsonTextFieldController _textFieldController;
+
   @override
   void initState() {
-    BlocProvider.of<AppCubit>(context).onPageOpened();
+    _textFieldController = JsonTextFieldController();
     super.initState();
   }
 
@@ -33,37 +35,59 @@ class _MainPageState extends State<MainPage> {
             alignment: Alignment.topCenter,
           );
         }
-        if (state.pdfBytes != null) {
-          _controller = PdfControllerPinch(
-            document: PdfDocument.openData(state.pdfBytes!),
-          );
-        }
       },
       builder: (context, state) {
-        return Stack(
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    color: Colors.red,
-                  ),
+        return Scaffold(
+          body: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('Enter your json here:'),
+                    const SizedBox(height: 8),
+                    Expanded(
+                      child: JsonTextField(
+                        controller: _textFieldController,
+                        keyboardType: TextInputType.multiline,
+                        maxLines: null,
+                        minLines: 80,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 22),
+                    Center(
+                      child: SizedBox(
+                        width: 200,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            final json = _textFieldController.text.trim();
+                            context.read<AppCubit>().generatePdf(
+                                  DefaultAssetBundle.of(context),
+                                  json,
+                                );
+                          },
+                          child: const Text('Generate PDF'),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                Expanded(
-                  child: _controller != null
-                      ? PdfViewPinch(
-                          controller: _controller!,
-                          scrollDirection: Axis.vertical,
-                          padding: 8,
-                        )
-                      : Container(),
-                ),
-              ],
-            ),
-            if (state.isLoading) const LoadingOverlay(),
-          ],
+              ),
+              if (state.isLoading) const LoadingOverlay(),
+            ],
+          ),
         );
       },
     );
+  }
+
+  @override
+  void dispose() {
+    _textFieldController.dispose();
+    super.dispose();
   }
 }

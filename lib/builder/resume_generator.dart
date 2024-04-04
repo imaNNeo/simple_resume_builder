@@ -1,5 +1,6 @@
+import 'dart:convert';
 import 'dart:typed_data';
-import 'package:http/http.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:pdf/widgets.dart';
@@ -26,12 +27,20 @@ const _longContentStyle = pw.TextStyle(
 );
 
 class ResumeGenerator {
-  static Future<Uint8List> generate(ResumeData data) async {
+  static Future<Uint8List> generate(AssetBundle assetsBundle, ResumeData data) async {
     final theme = pw.ThemeData.withFont(
-      base: pw.Font.helvetica(),
-      bold: pw.Font.helveticaBold(),
-      italic: pw.Font.helveticaOblique(),
-      boldItalic: pw.Font.helveticaBoldOblique(),
+      base: Font.ttf(
+        await assetsBundle.load("assets/fonts/OpenSans-Regular.ttf"),
+      ),
+      bold: Font.ttf(
+        await assetsBundle.load("assets/fonts/OpenSans-Bold.ttf"),
+      ),
+      italic: Font.ttf(
+        await assetsBundle.load("assets/fonts/OpenSans-Italic.ttf"),
+      ),
+      boldItalic: Font.ttf(
+        await assetsBundle.load("assets/fonts/OpenSans-BoldItalic.ttf"),
+      ),
     );
     final pdf = pw.Document(
       theme: theme,
@@ -48,25 +57,23 @@ class ResumeGenerator {
       if (experience.companyLogo == null) {
         continue;
       }
-      // Response response = await get(Uri.parse(experience.companyLogo!));
-      Response response = await get(Uri.parse('https://fastly.picsum.photos/id/93/200/200.jpg?hmac=zg_Gq7olpOr79tOB65nmsvLWAIR_Ju8QQWkTKurbgJs'));
-      _loadedImages[experience.companyLogo!] = response.bodyBytes;
+      _loadedImages[experience.companyLogo!] = base64Decode(
+        experience.companyLogo!,
+      );
     }
     for (final education in data.education) {
       if (education.schoolLogo == null) {
         continue;
       }
-      // Response response = await get(Uri.parse(education.schoolLogo!));
-      Response response = await get(Uri.parse('https://fastly.picsum.photos/id/93/200/200.jpg?hmac=zg_Gq7olpOr79tOB65nmsvLWAIR_Ju8QQWkTKurbgJs'));
-      _loadedImages[education.schoolLogo!] = response.bodyBytes;
+      _loadedImages[education.schoolLogo!] = base64Decode(
+        education.schoolLogo!,
+      );
     }
     for (final item in data.communityAndOpenSource) {
       if (item.logo.isEmpty) {
         continue;
       }
-      // Response response = await get(Uri.parse(item.logo));
-      Response response = await get(Uri.parse('https://fastly.picsum.photos/id/93/200/200.jpg?hmac=zg_Gq7olpOr79tOB65nmsvLWAIR_Ju8QQWkTKurbgJs'));
-      _loadedImages[item.logo] = response.bodyBytes;
+      _loadedImages[item.logo] = base64Decode(item.logo);
     }
     pdf.addPage(
       pw.MultiPage(
@@ -165,7 +172,7 @@ class ResumeGenerator {
               }).toList(),
             ),
             ...List.generate(
-              2,
+              1,
               (index) => pw.SizedBox(height: sectionSpace),
             ).toList(),
             Section(
@@ -231,7 +238,7 @@ class ResumeGenerator {
                               border: pw.Border.all(
                                 color: PdfColors.grey200,
                               ),
-                              borderRadius: BorderRadius.circular(2),
+                              borderRadius: pw.BorderRadius.circular(2),
                             ),
                             child: pw.Text(
                               e,
