@@ -19,8 +19,12 @@ class AppCubit extends Cubit<AppState> {
     try {
       final resumeData = ResumeData.fromJson(jsonDecode(jsonData));
       final resumePdfBytes = await ResumeGenerator.generate(bundle, resumeData);
+      final today = DateTime.now();
+      final formattedToday = '${today.year}-${today.month}-${today.day}';
+      final fullNameFormatted =
+          resumeData.fullName.toLowerCase().replaceAll(' ', '-');
       _downloadContentAsFileInWeb(
-        fileName: 'resume.pdf',
+        fileName: '$fullNameFormatted-resume-$formattedToday.pdf',
         bytes: resumePdfBytes,
       );
       emit(state.copyWith(
